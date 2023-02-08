@@ -2,10 +2,29 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Hello Symfony</title>
 </head>
 <body>
 <h1>Un premier Twig</h1>
 <p>C'est ma page d'accueil.</p>
+{% set fleurs = ["rose", "tulipe", "marguerite"] %}
+<h2>Exemple d'un if : </h2>
+    {% if fleurs[0] == "rose" %}
+        <p>La fleur est une rose.</p>
+    {% else %}
+        <p>Eh bien non, ce n'est pas une rose.</p>
+    {% endif %}
+<h2>Exemple d'une boucle for : </h2>
+    <ul>
+        {% for fleur in fleurs %}
+            <li>{{ fleur }}</li>
+        {% else %}
+            <li>Pas de fleurs.</li>
+        {% endfor %}
+    </ul>
+<h2>Exemple d'un filtre : </h2>
+<p>J'affiche {{ fleurs[1] }} en majuscules : {{ fleurs[1] | upper }}</p>
+<p>J'affiche les variables : {{ uneVar }} et {{ uneAutre }}.</p>
 </body>
 </html>
