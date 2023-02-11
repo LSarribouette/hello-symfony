@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <title>{% block title %}Hello Symfony{% endblock %}</title>
+        <link rel="icon" href="{{ asset('media/logo-twig.svg') }}">
+    </head>
+    <body>
+        <img src="{{ asset('media/logo-twig.svg') }}" alt="Le logo officiel de Twig, un petit bambou." class="logo">
+        {% block body %}{% endblock %}
+    </body>
+</html>
