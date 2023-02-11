@@ -26,15 +26,14 @@ class MovieController extends AbstractController
 
     #[Route('/{id}', name: '_detail')]
     public function detail(
-        int $id,
+        Movie $id,
         MovieRepository $movieRepository
     ): Response
     {
         $movie = $movieRepository->find($id);
-//        $movie = $movieRepository->findOneBy(['id' => $id]); // equivalent
-        return $this->render('movie/detail.html.twig',
-            compact('movie', 'id')
-        );
+        return $this->render('movie/detail.html.twig',[
+            'movie' => $id
+        ]);
     }
 
     #[Route('/create', name: '_create')]

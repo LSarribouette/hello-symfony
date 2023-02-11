@@ -2,7 +2,7 @@
 
 {% block body %}
     <div>
-        Le film n°{{ id }} est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.<br><br>
+        Le film n°{{ movie.id }} est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.<br><br>
         {% if movie.wasSeen %}
             Vu !!
         {% else %}
