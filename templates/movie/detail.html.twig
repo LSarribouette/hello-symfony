@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        Le film n°{{ id }} est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.<br><br>
+        {% if movie.wasSeen %}
+            Vu !!
+        {% else %}
+            Pas encore vu  !
+        {% endif %}
+    </div>
+    <br><hr>
+    <a href="{{ path('movie_list') }}">Retour à la liste de films</a>
+    <a href="{{ path('home_index') }}">Retour à l'accueil</a>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Détails d'un film{% endblock %}

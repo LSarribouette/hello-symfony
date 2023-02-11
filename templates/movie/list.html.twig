@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Liste de films à voir absolument</h2>
+    <ol>
+        {% for movie in movies %}
+            <li><a href="{{ path('movie_detail', {'id': movie.id}) }}">{{ movie.title }}</a> ({{ movie.country }}) sorti en {{ movie.releaseYear }}</li>
+        {% else %}
+            Aucun film n'a été ajouté pour l'instant.
+        {% endfor %}
+    </ol>
+    <br><hr>
+    <a href="{{ path('home_index') }}">Retour à l'accueil</a>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Liste de films{% endblock %}
+

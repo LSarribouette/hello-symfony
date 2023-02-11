@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+    Le film ajouté est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.
+    </div>
+{% endblock %}
+
+{% block title %}{{ parent() }} - Ajout d'un film{% endblock %}
+
