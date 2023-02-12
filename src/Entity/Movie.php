@@ -14,22 +14,22 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\NotNull(message: "Veuillez renseigner un titre pour le film.")]
+    #[Assert\NotNull(message: "Renseigne un titre pour le film !")]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     #[Assert\Range(
-        notInRangeMessage: "Le premier film est sorti en 1895 et nous sommes en 2023. Veuillez choisir une date dans cet intervalle.",
+        notInRangeMessage: "Le premier film est sorti en 1895 et nous sommes en 2023. Choisis une date dans cet intervalle :)",
         min: 1895, max: 2023
     )]
     #[ORM\Column(nullable: true)]
     private ?int $releaseYear = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $country = null;
-
     #[ORM\Column(nullable: true)]
     private ?bool $wasSeen = null;
+
+    #[ORM\ManyToOne(inversedBy: 'movies')]
+    private ?Country $country = null;
 
     public function getId(): ?int
     {
@@ -60,18 +60,6 @@ class Movie
         return $this;
     }
 
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(?string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
     public function isWasSeen(): ?bool
     {
         return $this->wasSeen;
@@ -80,6 +68,18 @@ class Movie
     public function setWasSeen(?bool $wasSeen): self
     {
         $this->wasSeen = $wasSeen;
+
+        return $this;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

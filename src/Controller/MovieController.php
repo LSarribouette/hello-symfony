@@ -23,7 +23,7 @@ class MovieController extends AbstractController
         $movie = new Movie();
         $movieForm = $this->createForm(MovieFormType::class, $movie);
         $movieForm->handleRequest($request);
-        if ($movieForm->isSubmitted()) {
+        if ($movieForm->isSubmitted() && $movieForm->isValid()) {
             $entityManager->persist($movie);
             $entityManager->flush();
             $this->addFlash('success', 'Film ajouté à la liste !');
@@ -40,7 +40,6 @@ class MovieController extends AbstractController
     ): Response
     {
         $movies = $movieRepository->findAll();
-        dump($movies);
         return $this->render('movie/list.html.twig',
             compact('movies')
         );
