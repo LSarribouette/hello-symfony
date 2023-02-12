@@ -10,8 +10,8 @@
         {% endif %}
     </div>
     <br><hr>
-    <a href="{{ path('movie_list') }}">Retour à la liste de films</a>
-    <a href="{{ path('home_index') }}">Retour à l'accueil</a>
+    <p><a href="{{ path('movie_list') }}">Retour à la liste de films</a></p>
+    <p><a href="{{ path('home_index') }}" class="bt">Retour à l'accueil</a></p>
 {% endblock %}
 
 {% block title %}{{ parent() }} - Détails d'un film{% endblock %}

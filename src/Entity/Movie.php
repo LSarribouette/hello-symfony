@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MovieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 class Movie
@@ -13,9 +14,14 @@ class Movie
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotNull(message: "Veuillez renseigner un titre pour le film.")]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[Assert\Range(
+        notInRangeMessage: "Le premier film est sorti en 1895 et nous sommes en 2023. Veuillez choisir une date dans cet intervalle.",
+        min: 1895, max: 2023
+    )]
     #[ORM\Column(nullable: true)]
     private ?int $releaseYear = null;
 

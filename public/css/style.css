@@ -16,8 +16,33 @@ body {
     padding: 0 15%;
 }
 
+a {
+    color: darkseagreen;
+}
+
+.bt {
+    text-decoration: none;
+    background-color: darkseagreen;
+    color: black;
+    padding: 1%;
+}
 
 .logo {
     width: 30%;
     margin-left: 40%;
 }
+
+.alert-success {
+    text-align: center;
+    background-color: darkseagreen;
+    color: white;
+    padding: 1%;
+}
+
+#movie_form{
+    display: flex;
+    flex-wrap: wrap;
+}
+    #movie_form > div {
+        margin: 1%;
+    }

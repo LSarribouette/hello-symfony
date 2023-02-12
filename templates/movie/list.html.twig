@@ -8,9 +8,10 @@
         {% else %}
             Aucun film n'a été ajouté pour l'instant.
         {% endfor %}
-    </ol>
+    </ol><br>
+    <h3><a href="{{ path('movie_create') }}" class="bt">Ajouter un film</a></h3>
     <br><hr>
-    <a href="{{ path('home_index') }}">Retour à l'accueil</a>
+    <p><a href="{{ path('home_index') }}" class="bt">Retour à l'accueil</a></p>
 {% endblock %}
 
 {% block title %}{{ parent() }} - Liste de films{% endblock %}

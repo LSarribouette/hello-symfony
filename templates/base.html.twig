@@ -8,6 +8,13 @@
     </head>
     <body>
         <img src="{{ asset('media/logo-twig.svg') }}" alt="Le logo officiel de Twig, un petit bambou." class="logo">
+        {% for label, messages in app.flashes%}
+            {% for message in messages %}
+                <div class="alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor%}
+        {% endfor%}
         {% block body %}{% endblock %}
     </body>
 </html>

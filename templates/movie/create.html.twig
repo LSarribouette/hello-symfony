@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
-    Le film ajouté est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.
-    </div>
+    <h2>Ajouter un film à la liste</h2>
+    {{ form_start(movieForm) }}
+    {{ form_widget(movieForm) }}
+    <button>OK</button>
+    {{ form_end(movieForm) }}
+    <br><hr>
+    <p><a href="{{ path('movie_list') }}" class="bt">Retour à la liste de films</a></p>
+    <p><a href="{{ path('home_index') }}" class="bt">Retour à l'accueil</a></p>
 {% endblock %}
 
 {% block title %}{{ parent() }} - Ajout d'un film{% endblock %}
