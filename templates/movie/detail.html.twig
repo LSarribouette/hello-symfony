@@ -2,7 +2,7 @@
 
 {% block body %}
     <div>
-        Le film n°{{ movie.id }} est <strong>{{ movie.title }}</strong> ({{ movie.country }}) sorti en {{ movie.releaseYear }}.<br><br>
+        Le film n°{{ movie.id }} est <strong>{{ movie.title }}</strong> ({{ movie.country.nameFrench }}) sorti en {{ movie.releaseYear }}.<br><br>
         {% if movie.wasSeen %}
             Vu !!
         {% else %}
@@ -10,7 +10,7 @@
         {% endif %}
     </div>
     <br><hr>
-    <p><a href="{{ path('movie_list') }}">Retour à la liste de films</a></p>
+    <p><a href="{{ path('movie_list') }}" class="bt">Retour à la liste de films</a></p>
     <p><a href="{{ path('home_index') }}" class="bt">Retour à l'accueil</a></p>
 {% endblock %}
 

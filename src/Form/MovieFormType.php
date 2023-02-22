@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Country;
 use App\Entity\Movie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -20,7 +22,11 @@ class MovieFormType extends AbstractType
                 "required" => true
             ])
             ->add('releaseYear', IntegerType::class, ["label" => "Année de sortie "])
-            ->add('country', TextType::class, ["label" => "Pays "])
+            ->add('country', EntityType::class, [
+                "class" => Country::class,
+                "choice_label" => "nameFrench",
+                "label" => "Pays "
+            ])
             ->add('wasSeen', CheckboxType::class, [
                 "label" => "Déjà vu ?",
                 "required" => false
