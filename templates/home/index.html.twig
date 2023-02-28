@@ -5,6 +5,13 @@
     <div class="nav-like">
         <a href="{{ path('home_twig') }}" class="bt">Premier twig</a>
         <a href="{{ path('movie_list') }}" class="bt">Liste de films à voir</a>
+        {% if app.user %}
+            <span>Bienvenue à toi, utilisateur connecté ({{ app.user.email }}) !</span>
+            <a href="{{ path('app_logout') }}" class="bt">Se déconnecter</a>
+        {% else %}
+                <a href="{{ path('app_login') }}" class="bt">Se connecter</a>
+                <a href="{{ path('app_register') }}" class="bt">S'inscrire</a>
+        {% endif %}
     </div>
 {% endblock %}
 

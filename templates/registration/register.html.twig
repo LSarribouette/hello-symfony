@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - S'inscrire{% endblock %}
+
+{% block body %}
+    <h1>S'inscrire</h1>
+
+    {{ form_start(registrationForm) }}
+    {{ form_widget(registrationForm) }}
+    <button class="btn btn-lg btn-primary" type="submit">
+        OK
+    </button>
+    {{ form_end(registrationForm) }}
+    <p><br><br>
+        <a href="{{ path('app_login') }}" class="bt">Se connecter</a>
+        <a href="{{ path('home_index') }}" class="bt">Retour à l'accueil</a>
+    </p>
+{% endblock %}
